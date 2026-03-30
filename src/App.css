@@ -1,0 +1,125 @@
+/* App-specific styles */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure full-width sections */
+section {
+  width: 100%;
+}
+
+/* Advanced Reveal Animations */
+@keyframes reveal-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.animate-reveal-up {
+  animation: reveal-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-reveal-down {
+  animation: reveal-down 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s ease-out forwards;
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-in-out infinite alternate;
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg, 
+    rgba(200, 169, 110, 0.8) 0%, 
+    rgba(244, 247, 255, 1) 50%, 
+    rgba(200, 169, 110, 0.8) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 12s linear infinite;
+}
+
+.text-shadow-premium {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 
+               0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Interactive Utilities */
+.hover-scale {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.glass-pill {
+  @apply bg-navy-light/40 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full;
+  transition: all 0.3s ease;
+}
+
+.glass-pill:hover {
+  @apply bg-navy-light/60 border-brass/40;
+  box-shadow: 0 0 20px rgba(200, 169, 110, 0.15);
+}
+
+/* Animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2.25rem !important;
+    line-height: 1 !important;
+  }
+}
+
+@media (pointer: coarse) {
+  button, a {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}

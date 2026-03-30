@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 60% 8%;
+    --foreground: 225 50% 97%;
+    --card: 220 50% 14%;
+    --card-foreground: 225 50% 97%;
+    --popover: 220 50% 14%;
+    --popover-foreground: 225 50% 97%;
+    --primary: 220 60% 15%;
+    --primary-foreground: 225 50% 97%;
+    --secondary: 220 30% 18%;
+    --secondary-foreground: 225 50% 97%;
+    --muted: 220 30% 22%;
+    --muted-foreground: 220 20% 65%;
+    --accent: 356 80% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 356 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 30% 20%;
+    --input: 220 30% 20%;
+    --ring: 42 45% 61%;
+    --radius: 0.75rem;
+    
+    /* Brand Colors */
+    --navy: 220 60% 15%;
+    --navy-deep: 220 60% 8%;
+    --navy-dark: 220 50% 5%;
+    --red: 356 80% 50%;
+    --brass: 42 45% 61%;
+    --white: 225 50% 97%;
+    --gray: 220 20% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer components {
+  .text-gradient-brass {
+    background: linear-gradient(135deg, #C8A96E 0%, #E8D4A8 50%, #C8A96E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .tricolor-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 100;
+    background: linear-gradient(90deg, 
+      #0B1A3E 33.33%, 
+      #F4F7FF 33.33%, 
+      #F4F7FF 66.66%, 
+      #E11D2E 66.66%
+    );
+  }
+  
+  .tricolor-stripe-h {
+    background: linear-gradient(90deg, 
+      #0B1A3E 33.33%, 
+      #F4F7FF 33.33%, 
+      #F4F7FF 66.66%, 
+      #E11D2E 66.66%
+    );
+  }
+  
+  .glow-brass-pulse {
+    animation: glow-brass-pulse 2s ease-in-out infinite;
+  }
+  
+  .shadow-glow-red {
+    box-shadow: 0 8px 30px rgba(225, 29, 46, 0.35);
+  }
+  
+  .card-glass {
+    @apply rounded-2xl border border-white/10;
+    background: rgba(18, 34, 85, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+  
+  .animate-success {
+    animation: success-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes glow-brass-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(200, 169, 110, 0.3),
+                0 0 16px rgba(200, 169, 110, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(200, 169, 110, 0.5),
+                0 0 32px rgba(200, 169, 110, 0.25);
+  }
+}
+
+@keyframes success-pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0E1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a2d5a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3d6a;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(200, 169, 110, 0.3);
+  color: #F4F7FF;
+}
+
+/* Focus states */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(200, 169, 110, 0.25);
+}
+
+/* Button press effect */
+button:active {
+  transform: scale(0.98);
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .card-glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* Prevent text selection on interactive elements */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
