@@ -89,7 +89,7 @@
       rgba(10, 14, 26, 0) 100%
     );
     background-size: 200% 100%;
-    animation: bar-flow 8s ease-in-out infinite alternate;
+    animation: bar-flow 18s ease-in-out infinite alternate;
     opacity: 0.85;
   }
 
@@ -106,7 +106,7 @@
       rgba(200, 169, 110, 0) 100%
     );
     background-size: 40% 100%;
-    animation: bar-shimmer 4s ease-in-out infinite;
+    animation: bar-shimmer 8s ease-in-out infinite;
     mix-blend-mode: screen;
   }
 
@@ -123,7 +123,7 @@
       rgba(10, 14, 26, 0) 100%
     );
     background-size: 200% 100%;
-    animation: bar-flow 8s ease-in-out infinite alternate;
+    animation: bar-flow 18s ease-in-out infinite alternate;
   }
 
   .ai-accent {
